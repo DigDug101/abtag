@@ -71,7 +71,6 @@ class AbtagTableEntry extends JTable
 
     if($this->id) { // Existing item
       $this->modified = $now;
-      $this->modified_by = $user->get('id');
     }
     else {
       // New entry. A entry created and created_by field can be set by the user,
@@ -82,6 +81,10 @@ class AbtagTableEntry extends JTable
 
       if(empty($this->created_by)) {
 	$this->created_by = $user->get('id');
+      }
+
+      if(empty($this->modified_by)) {
+	$this->modified_by = $user->get('id');
       }
     }
 

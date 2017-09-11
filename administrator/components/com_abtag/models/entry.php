@@ -62,13 +62,16 @@ class AbtagModelEntry extends JModelAdmin
       $db = $this->getDbo();
       $query = $db->getQuery(true);
       //Get the attributes of the corresponding article.
-      $query->select('title,alias,state,access,catid,introtext AS articletext,hits,language,created,created_by')
-	    ->from('#__content')
-	    ->where('id='.(int)$item->article_id);
+      $query->select('c.title,c.alias,c.state,c.access,c.catid,c.introtext AS articletext,c.hits,c.language,'.
+		     'c.created AS article_created,c.modified AS article_modified,u.name AS author_name,um.name AS modifier_name')
+	    ->from('#__content AS c')
+	    ->join('LEFT', '#__users AS u ON u.id=c.created_by')
+	    ->join('LEFT', '#__users AS um ON um.id=c.modified_by')
+	    ->where('c.id='.(int)$item->article_id);
       $db->setQuery($query);
       $article = $db->loadAssoc();
 
-      //Adds the article attributes to the item.
+      //Adds the article attributes to the entry item.
       foreach($article as $key => $value) {
 	$item->$key = $value;
       }

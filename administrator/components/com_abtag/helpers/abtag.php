@@ -238,6 +238,10 @@ class AbtagHelper
 
       JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_ABTAG_N_NEW_ENTRIES_SYNCHRONIZED'.$singular, $nbNewArt), 'message');
     }
+    elseif(empty($newArtIds) && empty($syncArtIds)) {
+      JFactory::getApplication()->enqueueMessage(JText::_('COM_ABTAG_NO_ARTICLE_FOUND'), 'message');
+      return;
+    }
 
     //Get all the Joomla article ids.
     $query->clear();

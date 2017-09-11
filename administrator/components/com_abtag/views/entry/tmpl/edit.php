@@ -15,12 +15,14 @@ JHtml::_('formbehavior.chosen', 'select');
 //Prevent params layout (layouts/joomla/edit/params.php) to display twice some fieldsets.
 $this->ignore_fieldsets = array('details', 'permissions', 'jmetadata');
 
+//Get the needed article's fields.
 $global = array(array('parent', 'parent_id'),
 		array('published', 'state', 'enabled'),
 		array('category', 'catid'),
 		'featured', 'sticky', 'access',
 		'language', 'note', 'version_note');
 
+//Remove the hits field from the template as entrie don't use it. 
 $publishingdata = array('publish_up', 'publish_down',
 			array('created', 'created_time'),
 			array('created_by', 'created_user_id'),
@@ -61,7 +63,6 @@ Joomla.submitbutton = function(task)
 	  <?php
 	        $this->fields = $publishingdata;
 		echo JLayoutHelper::render('joomla.edit.publishingdata', $this);
-		echo $this->form->getControlGroup('article_id'); 
 	  ?>
 	</div>
 	<div class="span6">
@@ -70,7 +71,7 @@ Joomla.submitbutton = function(task)
       </div>
       <?php echo JHtml::_('bootstrap.endTab'); ?>
 
-    <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_ABTAG_TAB_DETAILS')); ?>
+    <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_ABTAG_TAB_ARTICLE_DETAILS')); ?>
 
       <div class="row-fluid">
 	<div class="span9">
@@ -82,6 +83,21 @@ Joomla.submitbutton = function(task)
 	  <?php
 	        $this->fields = $global;
 		echo JLayoutHelper::render('joomla.edit.global', $this);
+	  ?>
+	</div>
+      </div>
+      <?php echo JHtml::_('bootstrap.endTab'); ?>
+
+    <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'article_publishing', JText::_('COM_ABTAG_TAB_ARTICLE_PUBLISHING')); ?>
+      <div class="row-fluid form-horizontal-desktop">
+	<div class="span6">
+	  <?php
+		echo $this->form->getControlGroup('article_created'); 
+		echo $this->form->getControlGroup('author_name'); 
+		echo $this->form->getControlGroup('article_modified'); 
+		echo $this->form->getControlGroup('modifier_name'); 
+		echo $this->form->getControlGroup('hits'); 
+		echo $this->form->getControlGroup('article_id'); 
 	  ?>
 	</div>
       </div>
