@@ -24,7 +24,7 @@ $assocParam = (JLanguageAssociations::isEnabled() && $params->get('show_associat
 <?php echo JLayoutHelper::render('entry_title', array('item' => $this->item, 'params' => $params, 'now_date' => $this->nowDate)); ?>
 
 <?php if ($canEdit || $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-	<?php echo JLayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item, 'print' => false)); ?>
+	<?php echo JLayoutHelper::render('icons', array('params' => $params, 'item' => $this->item, 'print' => false)); ?>
 <?php endif; ?>
 
 <?php if ($params->get('show_tags') && !empty($this->item->tags->itemTags)) : ?>
