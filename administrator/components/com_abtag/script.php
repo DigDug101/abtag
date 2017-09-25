@@ -44,7 +44,11 @@ class com_abtagInstallerScript
     }
 
     if($type == 'install') {
-      //
+      // Check the minimum Joomla! version
+      if(!version_compare(JVERSION, '3.4.0', 'ge')) {
+	Jerror::raiseWarning(null, JText::_('COM_ABTAG_INSTALLING_OLD_JOOMLA_VERSION').'3.4.0');
+	return false;
+      }
     }
   }
 
@@ -66,7 +70,13 @@ class com_abtagInstallerScript
    */
   function uninstall($parent) 
   {
-    //
+    //Remove tagging informations from the Joomla table.
+    $db = JFactory::getDbo();
+    $query = $db->getQuery(true);
+    $query->delete('#__content_types')
+	  ->where('type_title="ABTag" AND type_alias="com_abtag.entry"');
+    $db->setQuery($query);
+    $db->query();
   }
 
 
@@ -140,7 +150,11 @@ $db->Quote('AbtagHelperRoute::getEntryRoute'));
   function getParam($name)
   {
     $db = JFactory::getDbo();
-    $db->setQuery('SELECT manifest_cache FROM #__extensions WHERE name = "abtag"');
+    $query = $db->getQuery(true);
+    $query->select('manifest_cache')
+	  ->from('#__extensions')
+	  ->where('element = "com_abtag"');
+    $db->setQuery($query);
     $manifest = json_decode($db->loadResult(), true);
 
     return $manifest[$name];

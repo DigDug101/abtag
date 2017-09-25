@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.1" client="site" method="upgrade">
-	<name>mod_abtag_breadcrumbs</name>
-	<author>Joomla! Project</author>
-	<creationDate>July 2017</creationDate>
-	<copyright>Copyright (C) 2005 - 2017 Open Source Matters. All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<authorEmail>admin@joomla.org</authorEmail>
-	<authorUrl>www.joomla.org</authorUrl>
-	<version>3.0.0</version>
-	<description>MOD_ABTAG_BREADCRUMBS_XML_DESCRIPTION</description>
+<extension type="module" version="3.4.0" client="site" method="upgrade">
+    <name>mod_abtag_breadcrumbs</name>
+    <author>Lucas Sanner</author>
+    <creationDate>2017-09-22</creationDate>
+    <copyright> Copyright (C) 2017 Lucas Sanner. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later http://www.gnu.org/licenses/gpl.html</license>
+    <authorEmail>lucas.sanner@codalia.net</authorEmail>
+    <version>1.0</version>
+    <description>MOD_ABTAG_BREADCRUMBS_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_abtag_breadcrumbs">mod_abtag_breadcrumbs.php</filename>
 		<folder>language</folder>

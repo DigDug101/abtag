@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.0" type="plugin" group="content" method="upgrade">
-    <name>Plugin ABTag Plugins</name>
+<extension version="3.4.0" type="plugin" group="content" method="upgrade">
+    <name>ABTag Plugins</name>
     <author>Lucas Sanner</author>
-    <creationDate>May 2017</creationDate>
+    <creationDate>2017-09-22</creationDate>
     <copyright> Copyright (C) 2017 Lucas Sanner. All rights reserved.</copyright>
     <license>GNU General Public License version 2 or later http://www.gnu.org/licenses/gpl.html</license>
-    <authorEmail>lucas.sanner@gmail.com</authorEmail>
-    <version>1.0</version>
-    <description>PLG_CONTENT_ABTAGPLUGINS_XML_DESCRIPTION</description>
+    <authorEmail>lucas.sanner@codalia.net</authorEmail>
+    <version>1.3</version>
+    <description>PLG_ABTAGPLUGINS_XML_DESCRIPTION</description>
 	<files>
 	    <filename plugin="abtagplugins">abtagplugins.php</filename>
 	    <filename>index.html</filename>
