@@ -7,8 +7,9 @@ The same article can have several tags and therefore being shown on different lo
 ABTag provides a full integration for article URL routing, custom fields, breadcrums, blogs, page navigation etc...  
 ABTag makes sorting articles easy and flexible without have to install any CKK. 
 ## Download
-You can download the ABTag Extension package through the link below:
-[pgk_abtag-1.1.zip](http://codalia.net/downloads/download.php?extension=abtag&file=pkg_abtag-1.1.zip)
+You can download the ABTag Extension package through the link below:  
+**[pgk_abtag-1.1.zip](http://codalia.net/downloads/download.php?extension=abtag&file=pkg_abtag-1.1.zip)**  
+<br />
 Please use only packages to install or uninstall the ABTag Extension.
 ## Documentation
 A quick install manual as well as a FAQ is available on the [wiki](https://github.com/Duddy67/abtag/wiki).
