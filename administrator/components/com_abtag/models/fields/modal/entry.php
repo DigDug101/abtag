@@ -97,7 +97,7 @@ class JFormFieldModal_Entry extends JFormField
 	$title = $db->loadResult();
       }
       catch(RuntimeException $e) {
-	JError::raiseWarning(500, $e->getMessage());
+	JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
       }
     }
 

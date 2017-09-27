@@ -114,19 +114,21 @@ class AbtagViewTag extends JViewLegacy
 
     // Check for errors.
     if(count($errors = $this->get('Errors'))) {
-      JError::raiseError(500, implode("\n", $errors));
+      $app->enqueueMessage($errors, 'error');
       return false;
     }
 
     if($this->tag == false) {
-      return JError::raiseError(404, JText::_('COM_ABTAG_TAG_NOT_FOUND'));
+      $app->enqueueMessage(JText::_('COM_ABTAG_TAG_NOT_FOUND'), 'error');
+      return false;
     }
 
     //Check whether tag access level allows access.
     $this->user = JFactory::getUser();
     $groups = $this->user->getAuthorisedViewLevels();
     if(!in_array($this->tag->access, $groups)) {
-      return JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
+      $app->enqueueMessage(JText::_('JERROR_ALERTNOAUTHOR'), 'error');
+      return false;
     }
 
     // Prepare the data

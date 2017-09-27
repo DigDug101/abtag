@@ -18,10 +18,10 @@ class AbtagController extends JControllerLegacy
     require_once JPATH_COMPONENT.'/helpers/abtag.php';
 
     //Display the submenu.
-    AbtagHelper::addSubmenu(JRequest::getCmd('view', 'entries'));
+    AbtagHelper::addSubmenu($this->input->get('view', 'entries'));
 
     //Set the default view.
-    JRequest::setVar('view', JRequest::getCmd('view', 'entries'));
+    $this->input->set('view', $this->input->get('view', 'entries'));
 
     //Display the view.
     parent::display();

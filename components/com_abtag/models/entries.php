@@ -478,14 +478,14 @@ class AbtagModelEntries extends JModelList
 
 		// Add the list ordering clause.
 		$query->order($this->getState('list.ordering', 'tm.ordering') . ' ' . $this->getState('list.direction', 'ASC'));
-//echo $query;
+
 		return $query;
 	}
 
 	/**
 	 * Method to get a list of articles.
 	 *
-	 * Overriden to inject convert the attribs field into a JParameter object.
+	 * Overriden to inject convert the attribs field into a Registry object.
 	 *
 	 * @return  mixed  An array of objects on success, false on failure.
 	 *

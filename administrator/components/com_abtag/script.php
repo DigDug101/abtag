@@ -38,7 +38,7 @@ class com_abtagInstallerScript
       $rel = ' v-'.$oldRelease.' -> v-'.$this->release;
 
       if(version_compare($this->release, $oldRelease, 'le')) {
-	Jerror::raiseWarning(null, JText::_('COM_ABTAG_UPDATE_INCORRECT_VERSION').$rel);
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_ABTAG_UPDATE_INCORRECT_VERSION').$rel, 'error');
 	return false;
       }
     }
@@ -46,7 +46,7 @@ class com_abtagInstallerScript
     if($type == 'install') {
       // Check the minimum Joomla! version
       if(!version_compare(JVERSION, '3.4.0', 'ge')) {
-	Jerror::raiseWarning(null, JText::_('COM_ABTAG_INSTALLING_OLD_JOOMLA_VERSION').'3.4.0');
+	JFactory::getApplication()->enqueueMessage(JText::_('COM_ABTAG_INSTALLING_OLD_JOOMLA_VERSION').'3.4.0', 'error');
 	return false;
       }
     }

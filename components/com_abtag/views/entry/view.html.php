@@ -46,11 +46,9 @@ class AbtagViewEntry extends JViewLegacy
 		$this->user  = $user;
 
 		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			JError::raiseWarning(500, implode("\n", $errors));
-
-			return false;
+		if(count($errors = $this->get('Errors'))) {
+		  $app->enqueueMessage($errors, 'error');
+		  return false;
 		}
 
 		// Create a shortcut for $item.
