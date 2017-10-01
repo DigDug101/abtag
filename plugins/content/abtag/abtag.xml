@@ -13,5 +13,22 @@
 	    <filename>index.html</filename>
 	    <folder>language</folder>
 	</files>
+	<config>
+	    <fields name="params">
+		<fieldset name="basic">
+
+		    <field name="tags_on_the_fly"
+			   type="radio"
+			   default="0"
+			   class="btn-group btn-group-yesno"
+			   label="PLG_ABTAG_FIELD_TAGS_ON_THE_FLY_LABEL"
+			   description="PLG_ABTAG_FIELD_TAGS_ON_THE_FLY_DESC">
+			   <option value="1">JYES</option>
+			   <option value="0">JNO</option>
+		    </field>
+
+		</fieldset>
+	    </fields>
+	</config>
 
 </extension>

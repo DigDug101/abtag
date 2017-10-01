@@ -21,6 +21,20 @@ class plgContentAbtag extends JPlugin
 
   public function onContentBeforeSave($context, $data, $isNew)
   {
+    //Removes tags created on the fly from any component.
+    if(!$this->params->get('tags_on_the_fly', 0)) {
+      //Check we have tags before treating data.
+      if(isset($data->newTags)) {
+	foreach($data->newTags as $key => $tagId) {
+	  //Check for newly created tags (ie: id=#new#Title of the tag)
+	  if(substr($tagId, 0, 5) == '#new#') {
+	    //Remove the new tag from the tag data.
+	    unset($data->newTags[$key]);
+	  }
+	}
+      }
+    }
+
     return true;
   }
 
